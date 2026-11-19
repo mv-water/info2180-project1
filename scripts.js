@@ -1,5 +1,4 @@
 
-
 const form = document.querySelector(".newsletter form");
 const input = document.querySelector('input[type="email"]');
 const msg = document.querySelector(".message");
