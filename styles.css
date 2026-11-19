@@ -1,39 +1,66 @@
-/* Add your CSS to this file */
+
+*, *::before, *::after { box-sizing: border-box; }
+
 body {
     margin: 0;
-    font-size: 16px;
+    font-size: 18px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
 }
 
 .container {
     margin: 0 auto;
     max-width: 960px;
-    width: 100%;
-
+    padding: 0 20px; 
     display:flex;
     align-items: center;
     gap:24px;
 }
 
+header{
+    font-size: 18px;
+    background-color: white;
+    
+}
 
-header .container h1 {
+header .container{
     justify-content: space-between;
+}
+
+header h1{
+    margin: 0;
 }
 
 header .container ul{
     display:flex;
     margin: 0;
+    padding: 0;
+    
 }
 
 header .container ul li { 
     list-style: none;
-    padding: 20px;
-    text-align: center;
+    padding: 20px 16px;
 }
 
 header .container ul li a { 
     text-decoration: none;
+    color: #6b7280;
 }
 
+header .container ul li a:hover { 
+    color: #5A67D8;
+}
+
+
+.overview-hero .container, .learn-about .container, .testing .container,
+.stories .container, .newsletter .container {
+    padding: 48px 20px;         
+}
+
+
+.overview-hero{
+    background-color: #E2E8F0;
+}
 
 .overview-hero-image{
     flex: 0 1 40%;
@@ -51,59 +78,111 @@ header .container ul li a {
     min-width: 0;
 }
 
-.learn-about .container{
+.learn-about .container, .stories .container{
 
     flex-direction: column;
     align-items: stretch;
 
+}
+
+.learn-about h2{
+    font-size: 24px;
+    color:#48BB78;
+    margin: 0 0 16px;
 }
 
 .cards{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: auto;
     gap: 1rem;
 }
 
 .card{
-
-    border: #000000 solid 4px;
-
+    display: flex;
+    gap: 8px;
+    text-align: center;
+    border: #E2E8F0 solid 5px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px #6b7280 ;
+    flex-direction: column;
 }
 
-.testing-description{
+.card-body{
+    padding: 16px;
+    
+}
+
+.card-body h3{
+    font-size: 21px;
+    color: #48BB78;
+    margin: 0 0 16px;
+    
+}
+
+.card img{
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.testing{
+    background-color: #4A5568;
+    color: white;
+}
+
+.testing-description {
     flex: 1;
     min-width: 0;
 }
+
 .cta{
-    flex: 0 1 auto;
+        flex: 0 0 auto; 
 }
 
-.stories .container{
-    flex-direction: column;
-    align-items: stretch;
+.cta a{
+    text-decoration: none;
+    color: white;
+    white-space: nowrap;
+    border-radius: 5px;
+    background-color: #48BB78;
+    padding: 12px 24px;
+ 
+    
+}
+
+.stories h2, .stories a {
+    color:#5A67D8;
+}
+
+.stories h3{
+    font-size: 18px;
 }
 
 .stories article{
     display: flex;
     gap: 24px;
+    margin-bottom: 32px;
 }
 
 .stories article img{
     flex: 0 0 40%;
-    width: 40%;
     min-width: 0;
-    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    align-self: flex-start;
+    border-radius: 50%;
 }
 
 .article-body{
     flex: 1;
-    min-width: 0;
+
 }
 
+.newsletter{
+    background-color: #48BB78;
+    color: white;
+}
 .newsletter .container{
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
 }
 
@@ -113,22 +192,56 @@ form{
     gap: 8px;
 }
 
+form input{
+    padding: 8px 12px;
+}
 
-footer .container {
+form button{
+    background-color: #5A67D8;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+
+footer {
     text-align: center;
     padding: 20px;
+    background-color: #4A5568;
+    color: white;
 }
 
 @media(max-width:768px){
-    .container,
+
+    .overview-hero .container,
+    .testing .container,
     .stories article {
         flex-direction: column;
+        align-items: stretch;
     }
+
+    .overview-hero-image {
+        flex: none;
+    }
+
     .cards {
         grid-template-columns: 1fr;
     }
-    .stories article img {
+    
+     .stories article img {
         flex: none;
         width: 100%;
+        max-width: 320px;    
+        align-self: center;
+    }
+
+    .cta {
+        align-self: flex-start; 
+    }
+
+    header .container {
+        flex-wrap: wrap;       
+        justify-content: center;
     }
 }
